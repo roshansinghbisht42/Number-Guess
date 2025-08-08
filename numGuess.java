@@ -1,19 +1,42 @@
+// Random Number Guess 
 import java.util.*;
+
 public class guessNum{
     public static void main(String[] args){
         Scanner scanner = new Scanner(System.in);
-        System.out.print("\t------------------------------------------\n");
-        System.out.print("\t\tRandom Number Guess\n");
-        System.out.println("\tNOTE: The number is in the range of 1-100");
-        System.out.print("\t------------------------------------------\n\n\n");
-        int attempt = 3;
+
+        System.out.print("------------------------------------------\n");
+        System.out.print("Random Number Guess\n");
+        System.out.println("NOTE: The number is in the range of 1-100");
+        System.out.print("------------------------------------------\n\n\n");
+        System.out.println("NOTE: You have 3 rounds and in each round the number will change.");
+        
+        System.out.println("--------------------------\t");
+        System.out.println("Points Chart\n");
+        System.out.println("1. If you guess the number in your 1st chance you will get 5 points");
+        System.out.println("2. If you guess the number in your 2nd chance you will get 3 points");
+        System.out.println("3. if you guess the number in your 3rd chance you will get 1 point");
+        System.out.println("--------------------------\t");
+       
         System.out.print("You have 3 chances to guess the number\n");
+        int totalPoints = 0;
+        System.out.print("Let's start the game!\n\n");
+
+        for (int round = 1; round <= 3; round++){
+        
+            //generates a random number between 1 and 100
         Random random = new Random();
         int number = random.nextInt(100) + 1;
-        while(attempt>0){
+
+            System.out.println("\nRound " + round + ":");
+            int guessCount = 0;
+            int attempt = 3;
+
+            while(attempt>0){
 
             System.out.print("Enter your guess: ");
             int guess = scanner.nextInt();
+            guessCount++;
 
             if (guess==number){
                 System.out.print("Congratulation, your guess is correct.\n\n");
@@ -35,11 +58,15 @@ public class guessNum{
             }
         }
     }
+      
         if(attempt == 0){
             System.out.println("You're out of attempts.");
             System.out.print("The correct guess was: " + number + "\n");
         }
+    }
 
+        System.out.println("Game Over!");
+        System.out.println("Total Points: " + totalPoints);
         System.out.print("\t\nThanks for playing");
         scanner.close();
     }
