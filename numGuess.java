@@ -19,6 +19,8 @@ public class guessNum{
         System.out.println("--------------------------\t");
        
         System.out.print("You have 3 chances to guess the number\n");
+        
+        //points variable 
         int totalPoints = 0;
         System.out.print("Let's start the game!\n\n");
 
@@ -40,8 +42,20 @@ public class guessNum{
 
             if (guess==number){
                 System.out.print("Congratulation, your guess is correct.\n\n");
-                break;
+                
+                //assign points based on the guess count
+            if(guessCount == 1){
+                totalPoints += 5;
             }
+            else if(guessCount == 2){
+                totalPoints += 3;
+            }
+            else if(guessCount == 3){
+                totalPoints += 1;
+            }
+            
+                break;
+            }   
 
             else{
                 System.out.print("Your guess is incorrect.\n");
