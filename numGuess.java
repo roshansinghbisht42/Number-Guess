@@ -53,7 +53,7 @@ public class guessNum{
             else if(guessCount == 3){
                 totalPoints += 1;
             }
-            
+
                 break;
             }   
 
